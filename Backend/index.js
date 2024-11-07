@@ -1,9 +1,3 @@
-// first step for create any websites
-// the basic requirements for any create website 
-// backend -> frontend -> database
-// the command for run vite website -> npm run dev
-
-// import all packages 
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -21,11 +15,8 @@ app.use(cors({origin: '*'}))
 app.use('/uploads',express.static('uploads'));
 
 const { Schema } = mongoose;
-//connect
 mongoose.connect('mongodb://127.0.0.1:27017/empdb1');
 
-// mongodb ke adar schema 
-//schema
 const empSchema = new Schema({
     name: { type: String, required: [true,'Name is Required'] },
     dept: { type: String, required: [true,'Dept is Required'] },
@@ -41,8 +32,7 @@ doj: { type: Date, required: [true,'Date of Joining is Required'] },
   active:{ type: Boolean, default: true } ,
   });
 
-
-//model
+// model
 const Emp = mongoose.model('Emp', empSchema);
 
 //multer storage
@@ -70,7 +60,6 @@ const storage = multer.diskStorage({
   })
 
   //  routes 
-  // post get get :id delete :id put:id patch : id 
 
   app.post('/',(req, res) => {
     r=req.body;
@@ -136,27 +125,3 @@ app.get('/', (req, res) => {
                 app.listen(port, () => console.log(`Ready`))    
 
 
-       // first steps
-// initial steps for backend
-// backend
-// mkdir employee
-// cd employee
-// mkdir backend 
-// cd backend 
-// npm init
-// npm i express mongoose body-parser cors multer
-// mkdir uploads
-// cls
-      
-       // second steps -> components -> routing works in main.jsx 
-//  the steps for frontend -> 
-// axios -> nodejs pe  kisi pe request ko bhejna hai uske ke use kerte  kerte hai like (post,patch)
-// bootstrap -> desiging purpose , react-router-dom -> routing purpose
-// npm create vite@latest [Choose name, React & Javascript]
-// cd emp_curd
-// npm install
-// npm run dev
-// ctrl + c
-// npm i axios bootstrap
-// npm i react-router-dom
-// npm run dev
